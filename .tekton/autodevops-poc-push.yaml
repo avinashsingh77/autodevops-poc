@@ -22,7 +22,7 @@ spec:
   - name: revision
     value: '{{revision}}'
   - name: output-image
-    value: quay.io/redhat-user-workloads/avsingh1234-tenant/autodevops-poc/autodevops-poc:{{revision}}
+    value: quay.io/cloudbuddy7715/atodevops-poc:{{revision}}
   - name: dockerfile
     value: Dockerfile
   pipelineSpec:
@@ -222,8 +222,7 @@ spec:
       - name: COMMIT_SHA
         value: $(tasks.clone-repository.results.commit)
       - name: BUILD_ARGS
-        value:
-        - $(params.build-args[*])
+        value: ["PROJECT_ID=1024", "PR_ID=10"]
       - name: BUILD_ARGS_FILE
         value: $(params.build-args-file)
       runAfter:
