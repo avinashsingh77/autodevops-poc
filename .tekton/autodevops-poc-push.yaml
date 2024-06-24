@@ -191,7 +191,9 @@ spec:
           - name: fetch-github-payload
             image: registry.access.redhat.com/ubi9/ubi
             script: |
-              echo $(body.pull_request)
+              if {{ body.pull_request.state == "open" }}; then
+                echo "PR is Open"
+              fi
     - name: prefetch-dependencies
       params:
       - name: input
