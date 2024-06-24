@@ -206,6 +206,8 @@ spec:
       - name: git-basic-auth
         workspace: git-auth
     - name: fetch-info-from-git-payload
+      runAfter:
+      - clone-repository
       taskSpec:
         results:
           - PR_ID
