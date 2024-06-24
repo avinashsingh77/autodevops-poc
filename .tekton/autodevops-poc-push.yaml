@@ -164,9 +164,7 @@ spec:
           - name: fetch-github-payload
             image: registry.access.redhat.com/ubi9/ubi
             script: |
-              if {{ body.pull_request.state == "open" }}; then
-                echo "PR is Open"
-              fi
+              echo $(body.pull_request.state)
     - name: clone-repository
       params:
       - name: url
