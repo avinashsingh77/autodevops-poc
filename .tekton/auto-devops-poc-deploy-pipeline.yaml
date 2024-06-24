@@ -22,6 +22,6 @@ spec:
       taskSpec:
         steps:
           - name: echo-sample-message
-            image: images.paas.redhat.com/avsingh/dev-tools
+            image: registry.access.redhat.com/ubi8/ubi-minimal:8.2
             script: |
               echo -n $message
