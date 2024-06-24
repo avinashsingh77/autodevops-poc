@@ -235,7 +235,7 @@ spec:
       - name: BUILD_ARGS_FILE
         value: $(params.build-args-file)
       - name: BUILD_ARGS
-        value: ["PR_ID=$(params.pull-request-number)","PR_ID=$(params.git-repo-url)"]
+        value: ["PR_ID=$(params.pull-request-number)","GIT_REPO_URL=$(params.git-repo-url)"]
       runAfter:
       - prefetch-dependencies
       taskRef:
