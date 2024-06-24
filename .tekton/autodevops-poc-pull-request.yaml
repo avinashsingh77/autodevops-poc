@@ -30,6 +30,8 @@ spec:
     value: Dockerfile
   - name: pull-request-number
     value: "{{pull_request_number}}"
+  - name: git-repo-url
+    value: "{{repo_url}}"
   pipelineSpec:
     finally:
     - name: show-sbom
@@ -70,6 +72,8 @@ spec:
     params:
     - name: pull-request-number
       value: $(params.pull-request-number)
+    - name: git-repo-url
+      value: $(param.git-repo-url)
     - description: Source Repository URL
       name: git-url
       type: string
@@ -231,7 +235,7 @@ spec:
       - name: BUILD_ARGS_FILE
         value: $(params.build-args-file)
       - name: BUILD_ARGS
-        value: ["PR_ID=$(params.pull-request-number)"]
+        value: ["PR_ID=$(params.pull-request-number)","PR_ID=$(params.git-repo-url)"]
       runAfter:
       - prefetch-dependencies
       taskRef:

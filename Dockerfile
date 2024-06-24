@@ -2,13 +2,11 @@
 FROM alpine:latest
 
 # Define build arguments
-ARG GITHUB_HOST_URL
-ARG GIT_REPO
+ARG GIT_REPO_URL
 ARG PR_ID
 
 # Set environment variables
-ENV GITHUB_HOST_URL=${GITHUB_HOST_URL}
-ENV GIT_REPO=${GIT_REPO}
+ENV GIT_REPO_URL=${GIT_REPO_URL}
 ENV PR_ID=${PR_ID}
 
 # Define a simple command for the container to execute
