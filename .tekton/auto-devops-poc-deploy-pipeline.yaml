@@ -2,7 +2,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: "merge-pr"
+  name: deploy-pipeline
   annotations:
     pipelinesascode.tekton.dev/on-comment: "^/deploy"
 spec:
