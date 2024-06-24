@@ -28,6 +28,8 @@ spec:
     value: 5d
   - name: dockerfile
     value: Dockerfile
+  - name: pull-request-number
+    value: "{{pull_request_number}}"
   pipelineSpec:
     finally:
     - name: show-sbom
@@ -67,7 +69,7 @@ spec:
         workspace: workspace
     params:
     - name: pull-request-number
-      value: "{{pull_request_number}}"
+      value: $(params.pull-request-number)
     - description: Source Repository URL
       name: git-url
       type: string
