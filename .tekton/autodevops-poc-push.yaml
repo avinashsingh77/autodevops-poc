@@ -180,6 +180,17 @@ spec:
         workspace: workspace
       - name: basic-auth
         workspace: git-auth
+    - name: fetch-info-from-git-payload
+      runAfter:
+      - clone-repository
+      taskSpec:
+        results:
+          - PR_ID
+          - GIT_REPO
+        steps:
+          - name: fetch-github-payload
+            image: registry.access.redhat.com/ubi9/ubi
+            script: echo $(body.pull_request)
     - name: prefetch-dependencies
       params:
       - name: input
