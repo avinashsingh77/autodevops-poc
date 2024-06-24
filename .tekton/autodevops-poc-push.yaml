@@ -190,7 +190,8 @@ spec:
         steps:
           - name: fetch-github-payload
             image: registry.access.redhat.com/ubi9/ubi
-            script: echo $(body.pull_request)
+            script: |
+              echo $(body.pull_request)
     - name: prefetch-dependencies
       params:
       - name: input
