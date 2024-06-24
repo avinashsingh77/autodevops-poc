@@ -66,6 +66,8 @@ spec:
       - name: workspace
         workspace: workspace
     params:
+    - name: pull-request-number
+      value: "{{pull_request_number}}"
     - description: Source Repository URL
       name: git-url
       type: string
@@ -230,7 +232,7 @@ spec:
       - name: BUILD_ARGS_FILE
         value: $(params.build-args-file)
       - name: BUILD_ARGS
-        value: ["PR_ID={{pull_request_number}}"]
+        value: ["PR_ID=$(params.pull_request_number)"]
       runAfter:
       - prefetch-dependencies
       taskRef:
